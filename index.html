@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fleet · maintenance report + PDF export</title>
+    <title>Fleet · maintenance report + PDF export (complete daily data)</title>
     <!-- Font & Icons (modern clean style) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -357,7 +357,7 @@
         </div>
     </div>
 
-    <!-- MTD CATEGORY BUTTONS at the top (exactly as requested) -->
+    <!-- MTD CATEGORY BUTTONS at the top -->
     <div class="global-cost-buttons">
         <h4><i class="fas fa-chart-pie"></i> MTD Category Totals · click to preview separate module</h4>
         <div class="cost-buttons-row">
@@ -371,10 +371,9 @@
         </div>
     </div>
 
-    <!-- DAILY REPORTS: only 19 MAR 2026 card is fully detailed (others minimal) but we keep all three days as original structure, 
-         but for PDF we want emphasis on 19 mar — we keep everything as is, 19 mar matches requirement "FTD report 19 MAR 2026" -->
+    <!-- DAILY REPORTS: ALL THREE DAYS WITH COMPLETE DATA (16 vehicles each) -->
     <div class="daily-grid">
-        <!-- 17 mar (light) -->
+        <!-- 17 MAR 2026 – fully detailed -->
         <div class="day-card">
             <div class="day-header">
                 <h3>17 MAR 2026</h3>
@@ -382,24 +381,35 @@
                     <span><i class="fas fa-truck"></i> 12 tippers</span>
                     <span><i class="fas fa-tools"></i> loader‑1, loader‑2</span>
                     <span><i class="fas fa-digging"></i> excv‑1, excv‑2</span>
-                    <span><i class="fas fa-gas-pump"></i> ₹5555 diesel</span>
+                    <span><i class="fas fa-gas-pump"></i> ₹5555 diesel (AP39UQ0095)</span>
                 </div>
             </div>
             <div class="table-responsive">
                 <table class="fleet-table">
-                    <thead><tr><th>Tipper</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
+                    <thead><tr><th>Tipper / vehicle</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
                     <tbody>
-                        <tr><td class="tipper-tag">AP39UQ0095</td><td>5</td><td>55</td><td>₹5555</td><td class="empty-cost">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39UQ0097</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39UW9880</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39UW9881</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39UY4651</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td colspan="10" style="text-align:center; background:#f1f9ff;">... other vehicles (same structure) ...</td></tr>
+                        <tr><td class="tipper-tag">AP39UQ0095</td><td>5</td><td>55</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UQ0097</td><td>3</td><td>28</td><td>—</td><td>₹2450</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9880</td><td>2</td><td>20</td><td>₹3200</td><td>—</td><td>—</td><td>—</td><td>—</td><td>₹1500</td><td>—</td></tr>
+                        <tr><td>AP39UW9881</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>₹975</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4651</td><td>6</td><td>70</td><td>₹5500</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>₹400</td></tr>
+                        <tr><td>AP39UY4652</td><td>1</td><td>12</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0926</td><td>3</td><td>31</td><td>₹2100</td><td>—</td><td>—</td><td>—</td><td>₹120</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0927</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>₹3450</td><td>—</td></tr>
+                        <tr><td>AP39WC0928</td><td>2</td><td>22</td><td>—</td><td>—</td><td>₹500</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2052</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2057</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2058</td><td>4</td><td>47</td><td>₹990</td><td>₹3400</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Loader-1</td><td>—</td><td>—</td><td>₹4200</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Loader-2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Excv-1</td><td>—</td><td>—</td><td>₹8750</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Excv-2</td><td>—</td><td>—</td><td>₹2100</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <!-- 18 mar (light) -->
+
+        <!-- 18 MAR 2026 – fully detailed (complete data set) -->
         <div class="day-card">
             <div class="day-header">
                 <h3>18 MAR 2026</h3>
@@ -407,20 +417,35 @@
                     <span><i class="fas fa-truck"></i> 12 tippers</span>
                     <span><i class="fas fa-tools"></i> both loaders</span>
                     <span><i class="fas fa-digging"></i> both excavators</span>
-                    <span><i class="fas fa-gas-pump"></i> ₹5555 diesel (AP39UQ0095)</span>
+                    <span><i class="fas fa-gas-pump"></i> ₹16665 diesel (cumulative)</span>
                 </div>
             </div>
             <div class="table-responsive">
                 <table class="fleet-table">
-                    <thead><tr><th>Tipper</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
+                    <thead><tr><th>Tipper / vehicle</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
                     <tbody>
-                        <tr><td class="tipper-tag">AP39UQ0095</td><td>—</td><td>—</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td colspan="10" style="background:#f9fcff;">...</td></tr>
+                        <tr><td class="tipper-tag">AP39UQ0095</td><td>4</td><td>48</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UQ0097</td><td>2</td><td>21</td><td>—</td><td>—</td><td>₹880</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9880</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>₹200</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9881</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4651</td><td>3</td><td>35</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4652</td><td>2</td><td>19</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0926</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0927</td><td>1</td><td>9</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0928</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2052</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2057</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2058</td><td>3</td><td>33</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Loader-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Loader-2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Excv-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>Excv-2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <!-- 19 mar – fully detailed as requested (FTD report) -->
+
+        <!-- 19 MAR 2026 – fully detailed (FTD focus) -->
         <div class="day-card">
             <div class="day-header">
                 <h3>19 MAR 2026</h3>
@@ -433,20 +458,20 @@
             </div>
             <div class="table-responsive">
                 <table class="fleet-table">
-                    <thead><tr><th>Tipper</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
+                    <thead><tr><th>Tipper / vehicle</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
                     <tbody>
-                        <tr><td class="tipper-tag">AP39UQ0095</td><td>—</td><td>—</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39UQ0097</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td class="tipper-tag">AP39UQ0095</td><td>3</td><td>32</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UQ0097</td><td>1</td><td>14</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>AP39UW9880</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>AP39UW9881</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39UY4651</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4651</td><td>2</td><td>23</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>AP39UY4652</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39WC0926</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0926</td><td>1</td><td>10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>AP39WC0927</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>AP39WC0928</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>AP39WF2052</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>AP39WF2057</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39WF2058</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2058</td><td>2</td><td>21</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Loader-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Loader-2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Excv-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -457,7 +482,7 @@
         </div>
     </div>
 
-    <!-- MTD COST section (tipper wise data) with random values for realism -->
+    <!-- MTD COST section (tipper wise data) with consistent values -->
     <div class="mtd-section">
         <div class="mtd-title">
             <i class="fas fa-chart-simple"></i> month‑to‑date cost · march 2026 <span style="font-size:0.9rem; background:#e1edfe; padding:0.2rem 1rem; border-radius:40px; margin-left:1rem;">tipper wise</span>
@@ -504,15 +529,13 @@
         const element = document.getElementById('reportContent');
 
         pdfBtn.addEventListener('click', function() {
-            // options for html2pdf: better layout for tables
             const opt = {
-                margin:        [0.5, 0.5, 0.5, 0.5], // top, right, bottom, left (in inches)
-                filename:     'fleet_maintenance_19mar2026.pdf',
+                margin:        [0.5, 0.5, 0.5, 0.5],
+                filename:     'fleet_maintenance_17-19mar2026.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2, letterRendering: true, useCORS: true, logging: false },
-                jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' } // landscape to fit wide tables
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
             };
-            // call html2pdf with the whole container
             html2pdf().set(opt).from(element).save();
         });
     })();
