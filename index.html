@@ -15,19 +15,16 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             background: #f4f7fb;
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             padding: 2rem 1.5rem;
             color: #1a2639;
         }
-
         .report-container {
             max-width: 1400px;
             margin: 0 auto;
         }
-
         /* header with mtd summary chip */
         .header-row {
             display: flex;
@@ -36,7 +33,6 @@
             justify-content: space-between;
             margin-bottom: 2rem;
         }
-
         .title-section h1 {
             font-weight: 600;
             font-size: 1.9rem;
@@ -49,7 +45,6 @@
             align-items: center;
             gap: 10px;
         }
-
         .title-section i {
             background: #ffffff;
             padding: 10px 14px;
@@ -58,7 +53,6 @@
             color: #1e3c72;
             font-size: 1.3rem;
         }
-
         .mtd-badge {
             background: #1e2b45;
             color: white;
@@ -71,12 +65,10 @@
             align-items: center;
             gap: 12px;
         }
-
         .mtd-badge i {
             color: #ffd966;
             font-size: 1.2rem;
         }
-
         /* daily cards */
         .daily-grid {
             display: flex;
@@ -84,7 +76,6 @@
             gap: 1.8rem;
             margin-bottom: 3rem;
         }
-
         .day-card {
             background: white;
             border-radius: 32px;
@@ -94,11 +85,9 @@
             backdrop-filter: blur(2px);
             transition: all 0.2s ease;
         }
-
         .day-card:hover {
             box-shadow: 0 22px 40px -14px rgba(18,52,106,0.18);
         }
-
         .day-header {
             background: #f0f5fe;
             padding: 0.9rem 2rem;
@@ -107,7 +96,6 @@
             gap: 1.2rem;
             border-bottom: 1px solid #d9e5f0;
         }
-
         .day-header h3 {
             font-weight: 600;
             font-size: 1.35rem;
@@ -117,7 +105,6 @@
             border-radius: 40px;
             letter-spacing: -0.01em;
         }
-
         .day-summary {
             display: flex;
             flex-wrap: wrap;
@@ -125,7 +112,6 @@
             font-size: 0.95rem;
             color: #2c3f5c;
         }
-
         .day-summary span {
             background: white;
             padding: 0.25rem 1rem;
@@ -136,18 +122,15 @@
             font-weight: 500;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
-
         .day-summary i {
             color: #3e6b9c;
             width: 1.2rem;
         }
-
         .table-responsive {
             overflow-x: auto;
             padding: 0.5rem 1rem 1rem 1rem;
             scrollbar-width: thin;
         }
-
         .fleet-table {
             width: 100%;
             border-collapse: separate;
@@ -155,7 +138,6 @@
             font-size: 0.9rem;
             min-width: 1200px;
         }
-
         .fleet-table th {
             text-align: left;
             padding: 0.8rem 0.5rem 0.5rem 0.5rem;
@@ -166,7 +148,6 @@
             letter-spacing: 0.03em;
             border-bottom: 1px dashed #cbd6e4;
         }
-
         .fleet-table td {
             padding: 0.8rem 0.5rem;
             background: #f9fcff;
@@ -176,18 +157,15 @@
             font-weight: 450;
             box-shadow: 0 4px 8px -6px rgba(0, 30, 60, 0.08);
         }
-
         .fleet-table tbody tr:hover td {
             background: #edf4fd;
             transition: 0.1s;
         }
-
         .tipper-tag {
             font-weight: 600;
             color: #153e6b;
             font-family: 'Inter', monospace;
         }
-
         .cost-highlight {
             background: #f0eefb;
             border-radius: 20px;
@@ -196,17 +174,14 @@
             color: #132f4f;
             display: inline-block;
         }
-
         .empty-cost {
             opacity: 0.35;
             font-size: 0.8rem;
         }
-
         /* mtd section */
         .mtd-section {
             margin-top: 3rem;
         }
-
         .mtd-title {
             display: flex;
             align-items: center;
@@ -215,14 +190,12 @@
             font-weight: 600;
             margin-bottom: 1.8rem;
         }
-
         .mtd-title i {
             background: #1e3c5f;
             color: white;
             padding: 10px;
             border-radius: 50%;
         }
-
         .mtd-card {
             background: white;
             border-radius: 38px;
@@ -230,14 +203,53 @@
             box-shadow: 0 20px 35px -10px #0b253e1a;
             border: 1px solid #e5eefb;
         }
-
+        /* NEW: MTD cost summary buttons (clickable to separate modules) */
+        .cost-summary {
+            padding: 1rem 1.5rem 1.2rem;
+        }
+        .cost-summary h4 {
+            font-size: 1.1rem;
+            color: #285585;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        .cost-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .cost-btn {
+            background: white;
+            border: 1px solid #d0e0f5;
+            color: #1f3a5e;
+            padding: 0.75rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 3px 8px rgba(30, 60, 110, 0.08);
+            transition: transform 0.2s, background 0.2s, color 0.2s;
+        }
+        .cost-btn:hover {
+            background: #1e2b45;
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(30, 60, 110, 0.15);
+        }
+        .cost-btn i {
+            color: #3e6b9c;
+            font-size: 1.05rem;
+        }
         .mtd-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95rem;
             min-width: 900px;
         }
-
         .mtd-table th {
             text-align: left;
             padding: 1rem 0.5rem 0.8rem 0.5rem;
@@ -247,28 +259,23 @@
             font-size: 0.85rem;
             letter-spacing: 0.04em;
         }
-
         .mtd-table td {
             padding: 0.9rem 0.5rem;
             border-bottom: 1px solid #e2ebf6;
             color: #1f3a5e;
         }
-
         .mtd-table tbody tr:last-child td {
             border-bottom: none;
         }
-
         .total-row {
             background: #e5effc;
             font-weight: 600;
             border-radius: 18px;
         }
-
         .total-row td {
             background: #e5effc;
             border-top: 2px solid #a6c0e0;
         }
-
         .badge-vehicle {
             background: #d5e5ff;
             padding: 0.3rem 1rem;
@@ -277,7 +284,6 @@
             font-size: 0.85rem;
             display: inline-block;
         }
-
         .footer-note {
             margin-top: 2rem;
             text-align: right;
@@ -295,7 +301,6 @@
 </head>
 <body>
 <div class="report-container">
-
     <!-- header -->
     <div class="header-row">
         <div class="title-section">
@@ -305,7 +310,6 @@
             <i class="fas fa-calculator"></i> <span>MTD overview · march 2026</span>
         </div>
     </div>
-
     <!-- DAILY REPORTS (three days exactly as structure) -->
     <div class="daily-grid">
         <!-- 17 mar -->
@@ -323,18 +327,18 @@
                 <table class="fleet-table">
                     <thead><tr><th>Tipper</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
                     <tbody>
-                        <tr><td class="tipper-tag">AP39OQ95</td><td>5</td><td>55</td><td>₹5555</td><td class="empty-cost">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ97</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ80</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ81</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ51</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ52</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ26</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ27</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ28</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ52 (dup)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ57</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ58</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td class="tipper-tag">AP39UQ0095</td><td>5</td><td>55</td><td>₹5555</td><td class="empty-cost">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UQ0097</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9880</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9881</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4651</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4652</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0926</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0927</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0928</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2052</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2057</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2058</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td><i class="fas fa-arrow-right" style="color:#4773a5;"></i> Loader-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td><i class="fas fa-arrow-right"></i> Loader-2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td><i class="fas fa-arrow-right"></i> Excv-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -343,7 +347,6 @@
                 </table>
             </div>
         </div>
-
         <!-- 18 mar -->
         <div class="day-card">
             <div class="day-header">
@@ -352,25 +355,25 @@
                     <span><i class="fas fa-truck"></i> 12 tippers</span>
                     <span><i class="fas fa-tools"></i> both loaders</span>
                     <span><i class="fas fa-digging"></i> both excavators</span>
-                    <span><i class="fas fa-gas-pump"></i> ₹5555 diesel (AP39OQ95)</span>
+                    <span><i class="fas fa-gas-pump"></i> ₹5555 diesel (AP39UQ0095)</span>
                 </div>
             </div>
             <div class="table-responsive">
                 <table class="fleet-table">
-                    <thead><tr><th>Tipper</th><th>Trips</th><th>Dist</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
+                    <thead><tr><th>Tipper</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
                     <tbody>
-                        <tr><td class="tipper-tag">AP39OQ95</td><td>—</td><td>—</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ97</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ80</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ81</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ51</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ52</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ26</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ27</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ28</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ52</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ57</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ58</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td class="tipper-tag">AP39UQ0095</td><td>—</td><td>—</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UQ0097</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9880</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9881</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4651</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4652</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0926</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0927</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0928</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2052</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2057</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2058</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Loader-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Loader-2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Excv-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -379,7 +382,6 @@
                 </table>
             </div>
         </div>
-
         <!-- 19 mar -->
         <div class="day-card">
             <div class="day-header">
@@ -388,25 +390,25 @@
                     <span><i class="fas fa-truck"></i> 12 tippers</span>
                     <span><i class="fas fa-tools"></i> loaders</span>
                     <span><i class="fas fa-digging"></i> excavators</span>
-                    <span><i class="fas fa-gas-pump"></i> ₹5555 diesel (AP39OQ95)</span>
+                    <span><i class="fas fa-gas-pump"></i> ₹5555 diesel (AP39UQ0095)</span>
                 </div>
             </div>
             <div class="table-responsive">
                 <table class="fleet-table">
-                    <thead><tr><th>Tipper</th><th>Trips</th><th>Dist</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
+                    <thead><tr><th>Tipper</th><th>Trips</th><th>Dist (km)</th><th>Diesel</th><th>Tyre</th><th>Spare</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th></tr></thead>
                     <tbody>
-                        <tr><td class="tipper-tag">AP39OQ95</td><td>—</td><td>—</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ97</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ80</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ81</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ51</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ52</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ26</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ27</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ28</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ52</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ57</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td>AP39OQ58</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td class="tipper-tag">AP39UQ0095</td><td>—</td><td>—</td><td>₹5555</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UQ0097</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9880</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UW9881</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4651</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39UY4652</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0926</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0927</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WC0928</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2052</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2057</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td>AP39WF2058</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Loader-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Loader-2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td>Excv-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -416,42 +418,53 @@
             </div>
         </div>
     </div>
-
     <!-- MTD COST section (modern card) -->
     <div class="mtd-section">
         <div class="mtd-title">
             <i class="fas fa-chart-simple"></i> month‑to‑date cost · march 2026
         </div>
         <div class="mtd-card">
+            <!-- NEW: Clickable module buttons showing total sums for each category -->
+            <div class="cost-summary">
+                <h4>MTD Category Totals · click to preview separate module</h4>
+                <div class="cost-buttons">
+                    <a href="diesel-module.html" target="_blank" class="cost-btn"><i class="fas fa-gas-pump"></i> Diesel: ₹16665</a>
+                    <a href="tyre-module.html" target="_blank" class="cost-btn"><i class="fas fa-tire"></i> Tyre: ₹0</a>
+                    <a href="spare-module.html" target="_blank" class="cost-btn"><i class="fas fa-cogs"></i> Spare Part: ₹0</a>
+                    <a href="breakdown-module.html" target="_blank" class="cost-btn"><i class="fas fa-wrench"></i> Breakdown: ₹0</a>
+                    <a href="puncture-module.html" target="_blank" class="cost-btn"><i class="fas fa-thumbtack"></i> Puncture: ₹0</a>
+                    <a href="service-module.html" target="_blank" class="cost-btn"><i class="fas fa-screwdriver-wrench"></i> Service: ₹0</a>
+                    <a href="other-module.html" target="_blank" class="cost-btn"><i class="fas fa-ellipsis-h"></i> Other: ₹0</a>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="mtd-table">
                     <thead>
                         <tr><th>Vehicle</th><th>Diesel</th><th>Tyre</th><th>Spare part</th><th>Breakdown</th><th>Puncture</th><th>Service</th><th>Other</th><th>Total</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><span class="badge-vehicle">AP39OQ95</span></td><td>₹16665</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>₹16665</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ97</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ80</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ81</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ51</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ52</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ26</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ27</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ28</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ52 (dup)</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ57</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr><td><span class="badge-vehicle">AP39OQ58</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39UQ0095</span></td><td>₹16665</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>₹16665</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39UQ0097</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39UW9880</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39UW9881</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39UY4651</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39UY4652</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39WC0926</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39WC0927</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39WC0928</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39WF2052</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39WF2057</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                        <tr><td><span class="badge-vehicle">AP39WF2058</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td><span class="badge-vehicle">Loader-1</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td><span class="badge-vehicle">Loader-2</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td><span class="badge-vehicle">Excv-1</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
                         <tr><td><span class="badge-vehicle">Excv-2</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                        <tr class="total-row"><td colspan="7" style="text-align: right; font-weight: 600;">MTD GRAND TOTAL</td><td>₹16665</td><td></td></tr>
+                        <tr class="total-row"><td colspan="8" style="text-align: right; font-weight: 600;">MTD GRAND TOTAL</td><td>₹16665</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
     <!-- subtle footer with export idea -->
     <div class="footer-note">
         <span><i class="far fa-clock"></i> last updated 20 mar 2026 · 09:42</span>
