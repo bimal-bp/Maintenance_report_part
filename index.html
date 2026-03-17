@@ -1,1 +1,594 @@
-<h>gfuhyfu</h>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipper fleet · maintenance log (12 vehicles)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: #e7eef5;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        .fleet-card {
+            max-width: 98vw;
+            width: 1440px;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -12px rgba(0,20,40,0.35);
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .header-bar {
+            background: #0b2a3e;
+            padding: 1.5rem 2rem;
+            color: white;
+        }
+        .header-bar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.9rem;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .header-bar h1 span {
+            background: #3f6b8f;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        .sub-title {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            color: #b6d0e4;
+            font-weight: 400;
+            flex-wrap: wrap;
+        }
+        .date-badge {
+            background: #1d4b6e;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            color: white;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* table container */
+        .table-wrapper {
+            overflow-x: auto;
+            padding: 0 0 2px 0; /* space for shadow */
+            background: linear-gradient(to right, #f8fafc 30%, rgba(255,255,255,0)),
+                        linear-gradient(to right, rgba(255,255,255,0), #f8fafc 70%) 100% 0;
+            background-repeat: no-repeat;
+            background-color: #f8fafc;
+            background-size: 40px 100%, 40px 100%;
+            background-attachment: local, local;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 1350px;
+            background: white;
+            border-spacing: 0;
+            font-size: 0.85rem;
+            box-shadow: inset 0 -1px 0 #d9e2eb;
+        }
+        th {
+            background: #1f3b4f;
+            color: white;
+            font-weight: 500;
+            padding: 12px 4px;
+            text-align: center;
+            border-right: 1px solid #34566f;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        th:last-child {
+            border-right: none;
+        }
+        .vehicle-th {
+            background: #133041;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .vehicle-th div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .vehicle-th small {
+            font-weight: 300;
+            font-size: 0.7rem;
+            color: #a3c6e9;
+        }
+        td {
+            border: 1px solid #dde5ed;
+            padding: 6px 4px;
+            text-align: center;
+            background-color: white;
+        }
+        /* category header row */
+        .cat-row td {
+            background: #e6f0f9;
+            font-weight: 600;
+            color: #0b2a3e;
+            border-bottom: 2px solid #9bb7d4;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .input-cell {
+            padding: 2px 2px;
+        }
+        input {
+            width: 100%;
+            border: none;
+            background: #f4f9ff;
+            border-radius: 6px;
+            padding: 8px 4px;
+            font-size: 0.8rem;
+            text-align: center;
+            border: 1px solid #cbd6e4;
+            transition: 0.15s;
+            font-weight: 500;
+            color: #0f3145;
+        }
+        input:focus {
+            outline: 2px solid #2d6f9c;
+            border-color: transparent;
+            background: #ffffff;
+        }
+        .cost-sum-row {
+            background: #dceafa;
+            font-weight: 600;
+        }
+        .cost-sum-row td {
+            background: #dceafa;
+            border-top: 2px solid #648bb0;
+            color: #00263b;
+        }
+        .footer-grand {
+            background: #0b2a3e;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        .grand-totals {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-weight: 400;
+        }
+        .grand-totals div {
+            background: #1d4b6e;
+            padding: 0.4rem 1.2rem;
+            border-radius: 60px;
+        }
+        .grand-totals strong {
+            font-weight: 700;
+            margin-right: 0.4rem;
+        }
+        .btn-flat {
+            background: #3f8ab3;
+            border: none;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid #a5cef0;
+        }
+        .btn-flat:hover {
+            background: #256b94;
+        }
+        .footnote {
+            background: #ecf3fa;
+            padding: 0.5rem 2rem;
+            font-size: 0.8rem;
+            color: #2d4d66;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .legend {
+            display: flex;
+            gap: 20px;
+        }
+        .legend i {
+            font-style: normal;
+            background: #d4e2f0;
+            padding: 2px 10px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="fleet-card">
+    <div class="header-bar">
+        <h1>
+            ⚙️ FLEET MAINTENANCE · 12 TIPPERS
+            <span>row per date</span>
+        </h1>
+        <div class="sub-title">
+            <div class="date-badge">
+                <span>📅</span>
+                <input type="date" value="2025-04-07" style="background:#0f3a57; border:none; color:white; font-family:inherit; padding:4px 10px; border-radius:30px;">
+            </div>
+            <div style="display:flex; gap:20px;">
+                <span>⏲️ HMR:  <strong>hours & kms combined</strong></span>
+                <span>🔧 all costs in ₹ (local currency)</span>
+            </div>
+        </div>
+    </div>
+    <!-- main scrollable table -->
+    <div class="table-wrapper">
+        <table id="fleetTable">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="vertical-align: middle; min-width:110px;">📋 DATE / VEHICLE</th>
+                    <th colspan="12" class="vehicle-th" style="text-align:center;">🚛 TIPPER FLEET (V01 – V12)</th>
+                </tr>
+                <tr>
+                    <!-- 12 vehicle columns -->
+                    <th>V01<br><small>MH01AB1234</small></th><th>V02<br><small>MH02XY5678</small></th><th>V03<br><small>MH03PK9012</small></th>
+                    <th>V04<br><small>MH04LM3456</small></th><th>V05<br><small>MH05RT7890</small></th><th>V06<br><small>MH06UV2345</small></th>
+                    <th>V07<br><small>MH07WX6789</small></th><th>V08<br><small>MH08YZ0123</small></th><th>V09<br><small>MH09CD4567</small></th>
+                    <th>V10<br><small>MH10EF8901</small></th><th>V11<br><small>MH11GH2345</small></th><th>V12<br><small>MH12IJ6789</small></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Rows will be generated from JavaScript to keep one row per category group, 
+                     but we need "one row" per date with all costs in columns (12 vehicles). 
+                     According to spec: "all these in one row for 12 vehicles with date wise and in last tipper wise sums"
+                     Means: each date row contains per-vehicle: diesel, sparepart, breakdown, tyre, puncture, service, other, trips, distance, hmr.
+                     That's 10 inputs per vehicle. We'll create a template row with sub-columns per category. However, to keep table manageable,
+                     we place category names as separate row above, then each date row holds many inputs. But spec asks 'all maintenance cost like diesel cost, sparepart cost ... in one row for 12 vehicles date wise'.
+                     So we design a compact layout: each cell per vehicle will contain multiple small fields stacked? Better: use one row per date, each vehicle column contains multiple inputs (short inline). 
+                     We'll create a row for "01 Apr 2025" and each vehicle column is split vertically into fields using flex inside cell.
+                -->
+            </tbody>
+        </table>
+    </div>
+    <!-- bottom totals (tipper wise sums) -->
+    <div class="footer-grand">
+        <div class="grand-totals">
+            <div><strong>💰 total diesel:</strong> <span id="sumDiesel">0</span></div>
+            <div><strong>🔩 spare parts:</strong> <span id="sumSpare">0</span></div>
+            <div><strong>⚡ breakdown:</strong> <span id="sumBD">0</span></div>
+            <div><strong>🛞 tyre cost:</strong> <span id="sumTyre">0</span></div>
+            <div><strong>📌 puncture:</strong> <span id="sumPunc">0</span></div>
+            <div><strong>🧰 service:</strong> <span id="sumService">0</span></div>
+            <div><strong>📦 other:</strong> <span id="sumOther">0</span></div>
+        </div>
+        <button class="btn-flat" id="recalcBtn">⟲ recalc totals</button>
+    </div>
+    <div class="footnote">
+        <div class="legend">
+            <i>⛽ DSL</i> <i>🔩 SPR</i> <i>💥 B/D</i> <i>🛞 TYR</i> <i>📌 PNC</i> <i>🧰 SRV</i> <i>📦 OTH</i> <i>🚚 trips</i> <i>📏 dist</i> <i>⏲️ hmr</i>
+        </div>
+        <div>👇 click on any input to edit · last row shows tipper‑wise sums (all dates combined) </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const vehicleCount = 12;
+        // Predefine example dates (3 sample rows to demonstrate)
+        const sampleDates = ['2025-04-01', '2025-04-02', '2025-04-03'];
+
+        // Helper to generate random demo data (for visual completeness)
+        function randInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Reference to table body
+        const tbody = document.getElementById('tableBody');
+
+        // We'll store all row data internally (for sums). Each date row is an array of 12 vehicles,
+        // each vehicle holds 10 fields. We'll keep an array `rowsData` updated on input changes.
+        let rowsData = [];
+
+        // Create header row for categories (appears once above date rows)
+        function createCategoryHeaderRow() {
+            const tr = document.createElement('tr');
+            tr.classList.add('cat-row');
+            const firstCell = document.createElement('td');
+            firstCell.textContent = 'cost type / vehicle →';
+            firstCell.style.textAlign = 'left';
+            firstCell.style.fontWeight = '600';
+            tr.appendChild(firstCell);
+
+            for (let v = 0; v < vehicleCount; v++) {
+                const td = document.createElement('td');
+                // we use a small flex column inside category header? actually we show acronyms stacked.
+                td.innerHTML = `<div style="display:flex; flex-direction:column; gap:2px; font-size:0.7rem; line-height:1.2;">
+                    <span>DSL</span><span>SPR</span><span>BRK</span><span>TYR</span><span>PNC</span>
+                    <span>SRV</span><span>OTH</span><span>TRP</span><span>DST</span><span>HMR</span>
+                </div>`;
+                td.style.padding = '6px 0';
+                td.style.verticalAlign = 'middle';
+                tr.appendChild(td);
+            }
+            return tr;
+        }
+
+        // function to create an empty vehicle cell with 10 input fields (plus data binding)
+        function createVehicleCell(vehicleIndex, rowDate, initialData = null) {
+            const td = document.createElement('td');
+            td.style.padding = '3px';
+            td.style.verticalAlign = 'top';
+            const container = document.createElement('div');
+            container.style.display = 'grid';
+            container.style.gridTemplateColumns = '1fr 1fr'; // 2 cols x 5 rows to keep compact
+            container.style.gap = '3px';
+            container.style.background = '#f9fcff';
+            container.style.borderRadius = '6px';
+            container.style.padding = '4px';
+
+            // field names (internal)
+            const fieldNames = ['diesel','sparepart','breakdown','tyre','puncture','service','other','trips','distance','hmr'];
+            // create 10 inputs with appropriate placeholder
+            const inputs = [];
+            for (let f of fieldNames) {
+                const inp = document.createElement('input');
+                inp.placeholder = f.substring(0,3); // dsl, spa etc
+                inp.style.fontSize = '0.7rem';
+                inp.style.padding = '4px 1px';
+                inp.setAttribute('data-field', f);
+                inp.setAttribute('data-vehicle', vehicleIndex);
+                inp.setAttribute('data-date', rowDate);
+                // initial value if exists
+                if (initialData && initialData[f] !== undefined) {
+                    inp.value = initialData[f];
+                } else {
+                    inp.value = ''; // empty default
+                }
+                // event to update rowsData
+                inp.addEventListener('input', function(e) {
+                    updateRowData(rowDate, vehicleIndex, f, e.target.value);
+                });
+                container.appendChild(inp);
+                inputs.push(inp);
+            }
+            td.appendChild(container);
+            return td;
+        }
+
+        // function to add a new date row
+        function addDateRow(dateStr, prefillRandom = true) {
+            const tr = document.createElement('tr');
+            tr.setAttribute('data-row-date', dateStr);
+
+            // date cell
+            const dateCell = document.createElement('td');
+            dateCell.textContent = dateStr;
+            dateCell.style.fontWeight = '500';
+            dateCell.style.background = '#f0f5fb';
+            tr.appendChild(dateCell);
+
+            // initial data structure for this row
+            const rowInit = [];
+            for (let v = 0; v < vehicleCount; v++) {
+                let defaultData = {};
+                if (prefillRandom) {
+                    // seed some plausible numbers for demo
+                    defaultData = {
+                        diesel: randInt(2000,8000).toString(),
+                        sparepart: randInt(200,2000).toString(),
+                        breakdown: randInt(0,800).toString(),
+                        tyre: randInt(0,3000).toString(),
+                        puncture: randInt(0,400).toString(),
+                        service: randInt(0,1500).toString(),
+                        other: randInt(0,700).toString(),
+                        trips: randInt(1,8).toString(),
+                        distance: randInt(20,350).toString(),
+                        hmr: randInt(2,12).toString()
+                    };
+                } else {
+                    defaultData = { diesel:'', sparepart:'', breakdown:'', tyre:'', puncture:'', service:'', other:'', trips:'', distance:'', hmr:'' };
+                }
+                rowInit.push(defaultData);
+                const cell = createVehicleCell(v, dateStr, defaultData);
+                tr.appendChild(cell);
+            }
+            tbody.appendChild(tr);
+            // store row data in rowsData
+            rowsData.push({ date: dateStr, vehicles: rowInit });
+        }
+
+        // update rowsData when input changes
+        function updateRowData(date, vehicleIdx, field, value) {
+            const rowEntry = rowsData.find(r => r.date === date);
+            if (rowEntry) {
+                if (!rowEntry.vehicles[vehicleIdx]) rowEntry.vehicles[vehicleIdx] = {};
+                rowEntry.vehicles[vehicleIdx][field] = value;
+            }
+            // totals can be recalc on the fly, but we have a button. we also update totals after change.
+            // we'll call computeTipperSums after small delay to avoid heavy load.
+            clearTimeout(window.totalTimer);
+            window.totalTimer = setTimeout(() => {
+                computeTipperSums();
+            }, 150);
+        }
+
+        // compute sums per category across all vehicles (tipper wise sum = for each vehicle? Actually spec: "in last tipper wise the sums"
+        // likely means total per tipper across all dates? or per category? We'll show grand totals per category (all tippers combined) as per bottom bar.
+        // But also we want "tipper wise sums" – we can add a last row showing per vehicle totals across dates. That is more useful.
+        // We'll add a footer row (within tbody) that displays per-vehicle sums (for each category we need aggregated, but compact).
+        // We'll create a "TOTAL PER TIPPER" row below the date rows.
+
+        function createTipperTotalRow() {
+            const tr = document.createElement('tr');
+            tr.classList.add('cost-sum-row');
+            const tdLabel = document.createElement('td');
+            tdLabel.textContent = '💰 TIPPER WISE SUMS (all dates)';
+            tdLabel.style.fontWeight = '700';
+            tdLabel.style.textAlign = 'left';
+            tr.appendChild(tdLabel);
+
+            for (let v = 0; v < vehicleCount; v++) {
+                const td = document.createElement('td');
+                td.style.padding = '8px 2px';
+                td.style.fontSize = '0.75rem';
+                td.style.fontWeight = '600';
+                td.setAttribute('data-vehicle-sum', v);
+                td.innerHTML = `<div style="display:flex; flex-direction:column; gap:2px; align-items:center;">
+                    <span id="sumVehDsl_${v}">0</span>
+                    <span id="sumVehSpr_${v}">0</span>
+                    <span style="color:#264e6b;">...</span>
+                </div>`; // we will fully populate via JS
+                tr.appendChild(td);
+            }
+            return tr;
+        }
+
+        // compute and display per‑vehicle totals (tipper wise) + grand totals bar
+        function computeTipperSums() {
+            // initialize accumulators
+            let vehSum = Array.from({ length: vehicleCount }, () => ({
+                diesel:0, sparepart:0, breakdown:0, tyre:0, puncture:0, service:0, other:0, trips:0, distance:0, hmr:0
+            }));
+            // grand totals
+            let grand = { diesel:0, sparepart:0, breakdown:0, tyre:0, puncture:0, service:0, other:0, trips:0, distance:0, hmr:0 };
+
+            // iterate rowsData
+            for (let row of rowsData) {
+                for (let v = 0; v < vehicleCount; v++) {
+                    let veh = row.vehicles[v];
+                    if (!veh) continue;
+                    for (let key of ['diesel','sparepart','breakdown','tyre','puncture','service','other','trips','distance','hmr']) {
+                        let val = parseFloat(veh[key]) || 0;
+                        vehSum[v][key] += val;
+                        grand[key] += val;
+                    }
+                }
+            }
+
+            // update per-vehicle cells in the total row (if exists)
+            let totalRow = document.getElementById('tipperTotalRow');
+            if (!totalRow) {
+                // create and append after last row
+                const tbody = document.getElementById('tableBody');
+                const newRow = createTipperTotalRow();
+                newRow.id = 'tipperTotalRow';
+                tbody.appendChild(newRow);
+                totalRow = newRow;
+            }
+            // populate each vehicle column with a detailed breakdown (maybe 2 lines)
+            for (let v = 0; v < vehicleCount; v++) {
+                const cell = totalRow.querySelector(`td[data-vehicle-sum="${v}"]`);
+                if (cell) {
+                    // create a compact representation: show diesel, spare, tyre, hmr as samples. but full list can be seen on hover.
+                    // we can build a 2x5 grid inside.
+                    let sums = vehSum[v];
+                    cell.innerHTML = `<div style="display:grid; grid-template-columns:1fr 1fr; gap:2px 6px; font-size:0.68rem; text-align:right;">
+                        <span>DSL ${Math.round(sums.diesel)}</span> <span>SPR ${Math.round(sums.sparepart)}</span>
+                        <span>BRK ${Math.round(sums.breakdown)}</span> <span>TYR ${Math.round(sums.tyre)}</span>
+                        <span>PNC ${Math.round(sums.puncture)}</span> <span>SRV ${Math.round(sums.service)}</span>
+                        <span>OTH ${Math.round(sums.other)}</span> <span>TRP ${Math.round(sums.trips)}</span>
+                        <span>DST ${Math.round(sums.distance)}</span> <span>HMR ${Math.round(sums.hmr)}</span>
+                    </div>`;
+                }
+            }
+
+            // update grand totals in footer
+            document.getElementById('sumDiesel').innerText = Math.round(grand.diesel);
+            document.getElementById('sumSpare').innerText = Math.round(grand.sparepart);
+            document.getElementById('sumBD').innerText = Math.round(grand.breakdown);
+            document.getElementById('sumTyre').innerText = Math.round(grand.tyre);
+            document.getElementById('sumPunc').innerText = Math.round(grand.puncture);
+            document.getElementById('sumService').innerText = Math.round(grand.service);
+            document.getElementById('sumOther').innerText = Math.round(grand.other);
+            // we could also show trips/distance/hmr but spec not strictly needed for cost footer, but we keep them.
+        }
+
+        // initial build: add category row, sample date rows, total row
+        tbody.innerHTML = '';
+        tbody.appendChild(createCategoryHeaderRow());
+
+        // add sample rows
+        sampleDates.forEach(d => addDateRow(d, true));
+
+        // add tipper total row
+        const totalRow = createTipperTotalRow();
+        totalRow.id = 'tipperTotalRow';
+        tbody.appendChild(totalRow);
+
+        // compute initial sums
+        setTimeout(() => computeTipperSums(), 50);
+
+        // recalc button
+        document.getElementById('recalcBtn').addEventListener('click', function() {
+            computeTipperSums();
+        });
+
+        // also allow adding a new date row manually via hidden utility? not required but we can embed a small button in date header? 
+        // for better UX, we add a small button at bottom (optional). We'll put quick add in footnote later but keep simple.
+        // Add hidden add method: double click on date cell? but no needed.
+
+        // ensure rowsData gets updated on manual input (already)
+    })();
+</script>
+
+<!-- subtle extra: manual new date adder (easy) -->
+<div style="margin-top: 0.5rem; text-align: right; padding: 0.5rem 2rem 1.2rem; background: white; border-top: 1px solid #cbdae9;">
+    <button class="btn-flat" id="addDateRowBtn" style="background: #1f5a7e;">➕ Add new date row</button>
+    <span style="margin-left: 1rem; color: #345e7e;">fill in costs per vehicle (ten fields per vehicle).</span>
+</div>
+
+<script>
+    // add new date row with today +1
+    document.getElementById('addDateRowBtn').addEventListener('click', function() {
+        const tbody = document.getElementById('tableBody');
+        // find max date in rowsData to generate next day
+        let lastDate = '2025-04-03'; // fallback
+        if (window.rowsData && window.rowsData.length > 0) {
+            const dates = window.rowsData.map(r => r.date).sort();
+            lastDate = dates[dates.length-1];
+        }
+        // crude next day
+        let d = new Date(lastDate + 'T12:00:00');
+        d.setDate(d.getDate() + 1);
+        let year = d.getFullYear();
+        let month = String(d.getMonth() + 1).padStart(2,'0');
+        let day = String(d.getDate()).padStart(2,'0');
+        let newDateStr = `${year}-${month}-${day}`;
+
+        // remove the total row temporarily, insert new date row before total row, re-add total row? simplest: keep total row at end.
+        const totalRow = document.getElementById('tipperTotalRow');
+        if (totalRow) tbody.removeChild(totalRow);
+
+        // add new date row with empty fields (no random)
+        window.addDateRow(newDateStr, false);   // using false for empty
+
+        // re-append total row
+        tbody.appendChild(totalRow);
+        window.computeTipperSums();
+    });
+
+    // Expose functions to global for inner calls
+    window.addDateRow = addDateRow;
+    window.computeTipperSums = computeTipperSums;
+    window.rowsData = rowsData; // share
+</script>
+</body>
+</html>
