@@ -31,7 +31,7 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         .title-section h1 {
             font-weight: 600;
@@ -203,7 +203,7 @@
             box-shadow: 0 20px 35px -10px #0b253e1a;
             border: 1px solid #e5eefb;
         }
-        /* NEW: MTD cost summary buttons (clickable to separate modules) */
+        /* MTD cost summary buttons (now at the very top) */
         .cost-summary {
             padding: 1rem 1.5rem 1.2rem;
         }
@@ -310,6 +310,24 @@
             <i class="fas fa-calculator"></i> <span>MTD overview · march 2026</span>
         </div>
     </div>
+
+    <!-- MTD CATEGORY TOTALS BUTTONS — MOVED TO THE VERY TOP AS REQUESTED -->
+    <!-- This appears right after the header, before any daily data -->
+    <div class="mtd-card" style="margin-bottom: 3rem;">
+        <div class="cost-summary">
+            <h4>MTD Category Totals · click to preview separate module</h4>
+            <div class="cost-buttons">
+                <a href="diesel-module.html" target="_blank" class="cost-btn"><i class="fas fa-gas-pump"></i> Diesel: ₹16665</a>
+                <a href="tyre-module.html" target="_blank" class="cost-btn"><i class="fas fa-tire"></i> Tyre: ₹0</a>
+                <a href="spare-module.html" target="_blank" class="cost-btn"><i class="fas fa-cogs"></i> Spare Part: ₹0</a>
+                <a href="breakdown-module.html" target="_blank" class="cost-btn"><i class="fas fa-wrench"></i> Breakdown: ₹0</a>
+                <a href="puncture-module.html" target="_blank" class="cost-btn"><i class="fas fa-thumbtack"></i> Puncture: ₹0</a>
+                <a href="service-module.html" target="_blank" class="cost-btn"><i class="fas fa-screwdriver-wrench"></i> Service: ₹0</a>
+                <a href="other-module.html" target="_blank" class="cost-btn"><i class="fas fa-ellipsis-h"></i> Other: ₹0</a>
+            </div>
+        </div>
+    </div>
+
     <!-- DAILY REPORTS (three days exactly as structure) -->
     <div class="daily-grid">
         <!-- 17 mar -->
@@ -347,6 +365,7 @@
                 </table>
             </div>
         </div>
+
         <!-- 18 mar -->
         <div class="day-card">
             <div class="day-header">
@@ -382,6 +401,7 @@
                 </table>
             </div>
         </div>
+
         <!-- 19 mar -->
         <div class="day-card">
             <div class="day-header">
@@ -418,25 +438,13 @@
             </div>
         </div>
     </div>
-    <!-- MTD COST section (modern card) -->
+
+    <!-- MTD COST section (buttons removed — only tipper-wise table remains) -->
     <div class="mtd-section">
         <div class="mtd-title">
             <i class="fas fa-chart-simple"></i> month‑to‑date cost · march 2026
         </div>
         <div class="mtd-card">
-            <!-- NEW: Clickable module buttons showing total sums for each category -->
-            <div class="cost-summary">
-                <h4>MTD Category Totals · click to preview separate module</h4>
-                <div class="cost-buttons">
-                    <a href="diesel-module.html" target="_blank" class="cost-btn"><i class="fas fa-gas-pump"></i> Diesel: ₹16665</a>
-                    <a href="tyre-module.html" target="_blank" class="cost-btn"><i class="fas fa-tire"></i> Tyre: ₹0</a>
-                    <a href="spare-module.html" target="_blank" class="cost-btn"><i class="fas fa-cogs"></i> Spare Part: ₹0</a>
-                    <a href="breakdown-module.html" target="_blank" class="cost-btn"><i class="fas fa-wrench"></i> Breakdown: ₹0</a>
-                    <a href="puncture-module.html" target="_blank" class="cost-btn"><i class="fas fa-thumbtack"></i> Puncture: ₹0</a>
-                    <a href="service-module.html" target="_blank" class="cost-btn"><i class="fas fa-screwdriver-wrench"></i> Service: ₹0</a>
-                    <a href="other-module.html" target="_blank" class="cost-btn"><i class="fas fa-ellipsis-h"></i> Other: ₹0</a>
-                </div>
-            </div>
             <div class="table-responsive">
                 <table class="mtd-table">
                     <thead>
@@ -465,6 +473,7 @@
             </div>
         </div>
     </div>
+
     <!-- subtle footer with export idea -->
     <div class="footer-note">
         <span><i class="far fa-clock"></i> last updated 20 mar 2026 · 09:42</span>
